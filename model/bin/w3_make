@@ -291,8 +291,6 @@
   ln -sf mod_$pres_type mod
   cd $here
 
-
-
 # 1.c Setup for NetCDF compile - - - - - - - - - - - - - - - - - - - - - - - - 
 
 # 1.c.1 NetCDF compile message function
@@ -500,7 +498,7 @@ EOF
   cd $temp_dir
   if [ "$source" != 'yes' ]
   then
-    rm -f *.f *.F *.f90 *.F90
+    rm -f *.f *.F *.f90 *.F90 *.out *.err
   fi
   if [ "$list" != 'yes' ]
   then
@@ -741,6 +739,17 @@ EOF
 
   cp  $main_dir/bin/comp $main_dir/exe/
   cp  $main_dir/bin/link $main_dir/exe/
+
+# 2.e Store sources in temp directory for $prog
+
+  mkdir -p $main_dir/sorc/$prog.fd
+  cp -f $temp_dir/*.[fF]* $main_dir/sorc/$prog.fd
+  if ls $temp_dir/*.out 2> /dev/null
+  then
+    cat $temp_dir/*.out > $main_dir/sorc/$prog.fd/$prog.out
+  fi
+  cp -rL $main_dir/obj $main_dir/sorc/$prog.fd
+  cp -rL $main_dir/mod $main_dir/sorc/$prog.fd
  
 # --------------------------------------------------------------------------- #
 # 3. End of program ID.                                                       #

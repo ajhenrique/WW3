@@ -6,6 +6,7 @@ mod_*
 obj
 obj_*
 exe
+sorc
 tmp
 nuopc*.mk
 aux/makefile
