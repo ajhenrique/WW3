@@ -742,6 +742,7 @@ EOF
 
 # 2.e Store sources in temp directory for $prog
 
+  rm -rf $main_dir/sorc/$prog.fd
   mkdir -p $main_dir/sorc/$prog.fd
   cp -f $temp_dir/*.[fF]* $main_dir/sorc/$prog.fd
   if ls $temp_dir/*.out 2> /dev/null
