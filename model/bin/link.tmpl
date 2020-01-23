@@ -152,9 +152,9 @@
     fi
   done
 
-  $comp $opt $objects $libs $rpath                 1>> $temp_dir/$name.out 2>> $temp_dir/$name.err
+  $comp $opt $objects $libs $rpath                 1>> $temp_dir/$name.lnk 2>> $temp_dir/$name.err
   OK="$?"
-  echo "$comp $opt $objects $libs $rpath"                 1>> $temp_dir/$name.out
+  echo "$comp $opt $objects $libs $rpath"          1>> $temp_dir/link.out
 
 # --------------------------------------------------------------------------- #
 # 4. Postprocessing                                                           #

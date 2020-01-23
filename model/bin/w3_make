@@ -745,10 +745,12 @@ EOF
   rm -rf $main_dir/sorc/$prog.fd
   mkdir -p $main_dir/sorc/$prog.fd
   cp -f $temp_dir/*.[fF]* $main_dir/sorc/$prog.fd
-  if ls $temp_dir/*.out 2> /dev/null
+  if [ -f $temp_dir/comp.out ]
   then
-    cat $temp_dir/*.out > $main_dir/sorc/$prog.fd/$prog.out
+    mv $temp_dir/comp.out $main_dir/sorc/$prog.fd/$prog.out
   fi
+  cat $temp_dir/link.out >> $main_dir/sorc/$prog.fd/$prog.out
+  rm -f $temp_dir/link.out
   cp -rL $main_dir/obj $main_dir/sorc/$prog.fd
   cp -rL $main_dir/mod $main_dir/sorc/$prog.fd
  
