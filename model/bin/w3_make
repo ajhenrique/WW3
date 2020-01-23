@@ -749,7 +749,10 @@ EOF
   then
     mv $temp_dir/comp.out $main_dir/sorc/$prog.fd/$prog.out
   fi
-  cat $temp_dir/link.out >> $main_dir/sorc/$prog.fd/$prog.out
+  if [ -f $temp_dir/link.out ]
+  then
+    cat $temp_dir/link.out >> $main_dir/sorc/$prog.fd/$prog.out
+  fi
   rm -f $temp_dir/link.out
   cp -rL $main_dir/obj $main_dir/sorc/$prog.fd
   cp -rL $main_dir/mod $main_dir/sorc/$prog.fd
