@@ -1451,6 +1451,12 @@
 ! Loop to determine MAPBDI
 ! -------------------------------------------------------------------- /
 
+!/SCRIP        IF(IMPROC.EQ.NMPERR)THEN
+!/SCRIP          CALL DATE_AND_TIME ( CDATE_TIME(1), CDATE_TIME(2),CDATE_TIME(3), DATE_TIME)
+!/SCRIP          BEG_TIME(3) = ((DATE_TIME(5)*60 + DATE_TIME(6))*60 + DATE_TIME(7))*1000 + DATE_TIME(8)
+!/SCRIP          ELAPSED_TIME = BEG_TIME(3) - BEG_TIME(1)
+!/SCRIP          WRITE(MDSE,*) "Starting MAPBDI 1st loop AT ", ELAPSED_TIME, " MSEC"
+!/SCRIP        ENDIF
                IF(IMPROC.EQ.NMPERR)WRITE(MDSE,'(A)') &
                    'Starting MAPBDI 1st loop.'
  
@@ -1478,6 +1484,14 @@
                END DO ! DO IDST...
 
 ! -------------------------------------------------------------------- /
+
+!/SCRIP        IF(IMPROC.EQ.NMPERR) THEN
+!/SCRIP          CALL DATE_AND_TIME ( CDATE_TIME(1),CDATE_TIME(2),CDATE_TIME(3), DATE_TIME)
+!/SCRIP          BEG_TIME(3) = ((DATE_TIME(5)*60 + DATE_TIME(6))*60 + DATE_TIME(7))*1000 + DATE_TIME(8)
+!/SCRIP          ELAPSED_TIME = BEG_TIME(3) - BEG_TIME(1)
+!/SCRIP          WRITE(MDSE,*) "Starting MAPBDI 2st loop AT ", ELAPSED_TIME, " MSEC"
+!/SCRIP        ENDIF
+
 
                IF(IMPROC.EQ.NMPERR)WRITE(MDSE,'(A)') &
                    'Starting MAPBDI 2nd loop.'
